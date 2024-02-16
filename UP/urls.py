@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from auto_track_log.views import *
 
 urlpatterns = [
+    path('/', base),
     path('admin/', admin.site.urls),
-    path('/', ),
 ]

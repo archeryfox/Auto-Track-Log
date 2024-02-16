@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
-def main(request):
+def base(request):
     return render(request, 'base.html')
 # Create your views here.
