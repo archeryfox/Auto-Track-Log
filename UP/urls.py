@@ -19,6 +19,6 @@ from django.urls import path
 from auto_track_log.views import *
 
 urlpatterns = [
-    path('main/', base),
+    path('/', base),
     path('admin/', admin.site.urls),
 ]
