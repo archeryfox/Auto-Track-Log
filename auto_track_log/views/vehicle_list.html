@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>Список автомобилей</title>
+    <body>
+    <div class="container mt-4">
+        <h1>Список автомобилей</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Марка</th>
+                <th>Модель</th>
+                <th>Номер</th>
+                <th>Год выпуска</th>
+                <th>Цвет</th>
+                <th>Мощность двигателя</th>
+                <th>Расход топлива</th>
+                <th>Пробег</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for vehicle in vehicles %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ vehicle.brand }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.num }}</td>
+                    <td>{{ vehicle.year_of_release }}</td>
+                    <td>{{ vehicle.colour }}</td>
+                    <td>{{ vehicle.engine_power }}</td>
+                    <td>{{ vehicle.fuel_rate }}</td>
+                    <td>{{ vehicle.mileage }}</td>
+                    <td>
+                        <a href="{% url 'vehicle_detail' user.id %}"
+                           class="btn btn-primary btn-sm">Просмотр</a>
+                        <a href="{% url 'vehicle_update' user.id %}"
+                           class="btn btn-warning btn-sm">Изменить</a>
+                        <a href="{% url 'vehicle_delete' user.id %}" class="btn btn-danger btn-sm">Удалить</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

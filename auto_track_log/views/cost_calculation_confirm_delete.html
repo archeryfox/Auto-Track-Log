@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить этот расчет затрат?</h1>
+    <form action="{% url 'cost-calculation-delete' cost_calculation.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Да, удалить</button>
+    </form>
+    <a href="{% url 'cost-calculation-list' %}">Отмена</a>
+{% endblock %}

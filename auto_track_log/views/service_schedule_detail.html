@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Service Schedule Detail</h1>
+    <p>Vehicle: {{ service_schedule.vehicle }}</p>
+    <p>Start Date: {{ service_schedule.start_date }}</p>
+    <p>End Date: {{ service_schedule.end_date }}</p>
+    <p>Work Scope: {{ service_schedule.work_scope }}</p>
+    <a href="{% url 'service-schedule-list' %}">Back to Service Schedules</a>
+{% endblock %}

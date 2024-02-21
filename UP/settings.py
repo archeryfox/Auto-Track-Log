@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-)8_9bpnrqla0h91^-!cdfcah#gvpgoi^0fhi2_sok0+=^qfihv
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap5',
+    "auto_track_log"
 ]
 
 MIDDLEWARE = [
@@ -53,7 +52,7 @@ ROOT_URLCONF = 'UP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'templates', BASE_DIR / 'auto_track_log/views']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

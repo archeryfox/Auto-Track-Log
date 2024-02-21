@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <title>Подсчёты</title>
+    <div class="container">
+        <h1>Подсчёты</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Автомобиль</th>
+                    <th>Затраты на ТО</th>
+                    <th>Расходы на топливо</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cost_calculation in cost_calculations %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ cost_calculation.vehicle }}</td>
+                    <td>{{ cost_calculation.maintenance_costs }}</td>
+                    <td>{{ cost_calculation.fuel_costs }}</td>
+                 <td >
+                <a href="{% url 'cost-calculation-detail' user.id %}" class="btn btn-primary btn-sm">Просмотр</a>
+                <a href="{% url 'cost-calculation-update' user.id %}" class="btn btn-warning btn-sm">Изменить</a>
+                <a href="{% url 'cost-calculation-delete' user.id %}" class="btn btn-danger btn-sm">Удалить</a>
+            </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- Добавляем ссылку на другую страницу -->
+        <a href="{% url 'cost-calculation-create' %}" class="btn btn-primary">Перейти к графику обслуживания</a>
+    </div>
+{% endblock %}

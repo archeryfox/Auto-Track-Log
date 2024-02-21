@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Delete Service Schedule</h1>
+    <p>Are you sure you want to delete the service schedule for "{{ service_schedule.vehicle }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'service-schedule-list' %}">Cancel</a>
+{% endblock %}

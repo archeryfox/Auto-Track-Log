@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Расчёт стоимости</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Автомобиль</th>
+                    <th>Дата начала</th>
+                    <th>Дата конца</th>
+                    <th>Объём работ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service_schedule in service_schedules %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ service_schedule.vehicle }}</td>
+                    <td>{{ service_schedule.start_date }}</td>
+                    <td>{{ service_schedule.end_date }}</td>
+                    <td>{{ service_schedule.work_scope }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>ТС</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}
+
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Delete Vehicle</h1>
+    <p>Are you sure you want to delete the vehicle "{{ vehicle.brand }} {{ vehicle.model }} {{ vehicle.num }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'vehicle_list' %}">Cancel</a>
+{% endblock %}

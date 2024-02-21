@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Детали расчета затрат</h1>
+    <p><strong>Автомобиль:</strong> {{ cost_calculation.vehicle }}</p>
+    <p><strong>Затраты на ТО:</strong> {{ cost_calculation.maintenance_costs }}</p>
+    <p><strong>Расходы на топливо:</strong> {{ cost_calculation.fuel_costs }}</p>
+    <a href="{% url 'cost-calculation-update' cost_calculation.pk %}">Редактировать</a>
+    <form action="{% url 'cost-calculation-delete' cost_calculation.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+{% endblock %}
