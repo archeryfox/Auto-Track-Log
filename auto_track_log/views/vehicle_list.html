@@ -31,11 +31,11 @@
                     <td>{{ vehicle.fuel_rate }}</td>
                     <td>{{ vehicle.mileage }}</td>
                     <td>
-                        <a href="{% url 'vehicle_detail' user.id %}"
+                        <a href="{% url 'vehicle_detail' vehicle.id %}"
                            class="btn btn-primary btn-sm">Просмотр</a>
-                        <a href="{% url 'vehicle_update' user.id %}"
+                        <a href="{% url 'vehicle_update' vehicle.id %}"
                            class="btn btn-warning btn-sm">Изменить</a>
-                        <a href="{% url 'vehicle_delete' user.id %}" class="btn btn-danger btn-sm">Удалить</a>
+                        <a href="{% url 'vehicle_delete' vehicle.id %}" class="btn btn-danger btn-sm">Удалить</a>
                     </td>
                 </tr>
             {% endfor %}

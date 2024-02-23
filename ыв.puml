@@ -1,0 +1,95 @@
+@startuml
+title Database Testing
+skinparam monochrome true
+rectangle "BD" as T{}
+T -->  Role <<database>> : 'Adding new roles'
+note right of Rol
+Successful creation of a new role
+end note
+Rol(Tester, "Role for database testing")
+
+T --> Adding new users
+: User <<database>>;
+User(testuser, "testpassword", "Test", "User", Rol)
+note right of User
+Successful creation of a new user
+end note
+
+T --> Adding new vehicles
+: Vehicle <<database>>;
+Transport(Toyota, "Camry", A123VS, 2022, 150, 8, 10000)
+note right of Transport
+Successful creation of a new vehicle
+end note
+
+T --> Adding maintenance costs
+: Cost calculation <<database>>;
+CostCalc(Transport, 5000, 3000)
+note right of CostCalc
+Successful creation of a new cost calculation
+end note
+
+T --> Adding maintenance schedule
+: Service schedule <<database>>;
+ServiceSchedule(Transport, D1, D2, WorkScope)
+note right of ServiceSchedule
+Successful creation of a new service schedule
+end note
+
+T --> Changing role name
+: Changing role name <<database>>;
+Role(Name="Role for database testing")
+note left of Role
+Successful change of role name
+end note
+
+T --> Changing user name
+: Changing user name <<database>>;
+User(name="TestUser")
+note left of User
+Successful change of user name
+end note
+
+T --> Changing vehicle color
+: Changing vehicle color <<database>>;
+Transport(color="Black")
+note left of Transport
+Successful change of vehicle color
+end note
+
+T --> Changing fuel costs
+: Changing fuel costs <<database>>;
+CostCalc(FuelCost=4000)
+note left of CostCalc
+Successful change of fuel costs
+end note
+
+T --> Changing maintenance scope
+: Changing maintenance scope <<database>>;
+ServiceSchedule(WorkScope="Brake pad replacement")
+note left of ServiceSchedule
+Successful change of maintenance scope
+end note
+
+T --> Deleting role
+: Deleting role <<database>>;
+Role(ID=1)
+note left of Role
+Successful deletion of role
+end note
+
+T --> Deleting user
+: Deleting user <<database>>;
+User(ID=1)
+note left of User
+Successful deletion of user
+end note
+
+T --> Deleting vehicle
+: Deleting vehicle <<database>>;
+Transport(ID=1)
+note left of Transport
+Successful deletion of vehicle
+end note
+
+@enduml

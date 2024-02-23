@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить этот автомобиль?</h1>
+    <form action="{% url 'vehicle_delete' vehicle.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Да, удалить</button>
+    </form>
+    <a href="{% url 'cost-calculation-list' %}">Отмена</a>
+{% endblock %}

@@ -20,15 +20,14 @@
                     <td>{{ cost_calculation.maintenance_costs }}</td>
                     <td>{{ cost_calculation.fuel_costs }}</td>
                  <td >
-                <a href="{% url 'cost-calculation-detail' user.id %}" class="btn btn-primary btn-sm">Просмотр</a>
-                <a href="{% url 'cost-calculation-update' user.id %}" class="btn btn-warning btn-sm">Изменить</a>
-                <a href="{% url 'cost-calculation-delete' user.id %}" class="btn btn-danger btn-sm">Удалить</a>
+                <a href="{% url 'cost-calculation-update' cost_calculation.id %}" class="btn btn-warning btn-sm">Изменить</a>
+                <a href="{% url 'cost-calculation-delete' cost_calculation.id %}" class="btn btn-danger btn-sm">Удалить</a>
             </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <!-- Добавляем ссылку на другую страницу -->
-        <a href="{% url 'cost-calculation-create' %}" class="btn btn-primary">Перейти к графику обслуживания</a>
+        <a href="{% url 'cost-calculation-create' %}" class="btn btn-primary">Создать</a>
     </div>
 {% endblock %}

@@ -68,7 +68,7 @@ def login_view(request):
 
 
 class VehicleListView(TemplateView):
-    template_name = r'vehicle_list.html'
+    template_name = 'vehicle_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,7 +85,7 @@ class CostCalculationListView(TemplateView):
         context['cost_calculations'] = CostCalculation.objects.all()  # Получаем все транспортные средства из базы данных
         return context
 
-class ServiceScheduleListView(TemplateView):
+class ServiceScheduleListView(ListView):
     model = ServiceSchedule
     template_name = 'service_schedule_list.html'  # Имя вашего HTML-шаблона для списка графиков обслуживания
     context_object_name = 'service_schedules'  # Имя переменной контекста в шаблоне
@@ -144,7 +144,7 @@ class VehicleUpdateView(UpdateView):
 
 class VehicleDeleteView(DeleteView):
     model = Vehicle
-
+    template_name = 'vehicle_confirm_delete.html'
     success_url = reverse_lazy('vehicle_list')
 
 class CostCalculationDetailView(DetailView):
